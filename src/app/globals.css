@@ -14,3 +14,74 @@
   list-style: none;
   text-decoration: none;
 }
+
+div.main-bg-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/images/main-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+div.main-bg-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(72, 32, 167);
+  clip-path: polygon(50% 100%, 100% 0%, 100% 100%, 0 100%);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+div.person-bg::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/**** animation playbtn *******/
+button.play-btn {
+  transform-origin: center;
+  box-shadow: 1px 1px 10px 5px #0ea5e9;
+  transition: all 0.3s ease-in-out 0s;
+}
+button.play-btn:hover {
+  box-shadow: 1px 1px 10px 5px #ffffff;
+}
+
+button.play-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: inherit;
+  animation: anim-pulses infinite 2s linear;
+  z-index: -1;
+}
+
+button.play-btn .icon-play::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: inherit;
+  animation: anim-pulses infinite 2s linear;
+  animation-delay: 0.75s;
+  z-index: -1;
+}

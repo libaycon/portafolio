@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Button, useDisclosure } from "@nextui-org/react";
 import darkLogo from "/public/dark_logo.png";
-import lightLogo from "/public/light_logo.png";
+import lightLogo from "/public/white_logo.png";
 import { BsGithub } from "react-icons/bs";
 import DarkButton from "./darkButton";
 import { useTheme } from "next-themes";
@@ -39,8 +39,8 @@ const Header: React.FC = (): JSX.Element => {
     }, [isOpen]);
 
     return (
-        <header className="relative grid grid-cols-auto-1fr-auto gap-1 w-full h-full mx-auto" role="nav">
-            <div className="flex h-full gap-4 items-center">
+        <header className="grid grid-cols-auto-1fr-auto gap-1 w-full h-full mx-auto" role="nav">
+            <div className="flex h-full gap-4 items-center z-10">
                 <div className="max-w-[35px]">
                     <Link href={"/"}>
                         <Image src={logo} alt="logo" className="w-full h-full object-cover" priority />
@@ -71,12 +71,12 @@ const Header: React.FC = (): JSX.Element => {
                         )}
                     </ul>
                 ) :
-                    <div className={`absolute -left-4 -right-4 top-full ${isOpen ? `h-[calc(100vh-60px)]` : 'h-0'} transition-all ease-in-out duration-300 bg-white dark:bg-black overflow-hidden z-[+1]`}>
+                    <div className={`absolute -left-0 -right-0 top-0 pt-[60px] ${isOpen ? `h-[100vh]` : 'h-0'} transition-all ease-in-out duration-300 bg-[#af8dff12] backdrop-blur-xl overflow-hidden z-[+1]`}>
                         <div className="navbar_modal relative p-4 max-h-max min-h-0 overflow-y-auto">
                             <ul className="flex flex-col select-none">
                                 {navigation.map((item, index) =>
                                     <li key={`${item.name}-${index}`} className="text-[0.85rem] font-[600] w-full">
-                                        <Link href={item.path} className="flex flex-row gap-3 line-clamp-1 w-full h-full items-center px-4 py-2 hover:bg-default-200" onClick={onOpenChange}>
+                                        <Link href={item.path} className="flex flex-row gap-4 line-clamp-1 w-full h-full items-center px-4 py-3 hover:bg-default-200" onClick={onOpenChange}>
                                             <item.Icon className="" size="1.5rem" />
                                             <span className="text-[1rem] leading-none">
                                                 {item.name}
@@ -90,7 +90,7 @@ const Header: React.FC = (): JSX.Element => {
                 }
 
             </div>
-            <div className="flex h-full items-center gap-4">
+            <div className="flex h-full items-center gap-4 z-10">
                 <DarkButton darkMode={theme} setDarkMode={setTheme} />
 
 
