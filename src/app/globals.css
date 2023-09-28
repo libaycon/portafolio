@@ -18,7 +18,10 @@
 div.main-bg-img::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -60px;
+  bottom: -4rem;
+  left: 0;
+  right: 0;
   background-image: url("../assets/images/main-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +33,10 @@ div.main-bg-img::after {
 div.main-bg-img::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -60px;
+  bottom: -4rem;
+  left: 0;
+  right: 0;
   background-color: rgb(72, 32, 167);
   clip-path: polygon(50% 100%, 100% 0%, 100% 100%, 0 100%);
   opacity: 0.5;
