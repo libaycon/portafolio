@@ -22,7 +22,7 @@ const Header: React.FC = (): JSX.Element => {
     const navigation = [
         { name: "Inicio", path: "/", Icon: BiHomeSmile },
         { name: "Skills", path: "/skills", Icon: BiRocket },
-        { name: "Proyectos", path: "/projects", Icon: BiCollection },
+        { name: "Proyectos", path: "#projects", Icon: BiCollection },
         { name: "Contacto", path: "/contact", Icon: BiUserVoice }
     ];
 
