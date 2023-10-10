@@ -13,16 +13,16 @@ export default function Main() {
         <div className='container m-auto h-full flex flex-col md:flex-row gap-4 items-center select-none'>
             <div className='flex-1 p-4 pt-6 md:p-8 w-[90%] space-y-4'>
                 <div className='flex flex-row gap-4 text-white'>
-                    <button className='rounded-full bg-sky-500 p-2 flex items-center justify-center hover:scale-110 transition-all'>
+                    <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoLinkedin size='1.7rem' />
                     </button>
-                    <button className='rounded-full bg-sky-500 p-2 flex items-center justify-center hover:scale-110 transition-all'>
+                    <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoFacebook size='1.7rem' />
                     </button>
-                    <button className='rounded-full bg-sky-500 p-2 flex items-center justify-center hover:scale-110 transition-all'>
+                    <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoInstagram size='1.7rem' />
                     </button>
-                    <button className='rounded-full bg-sky-500 p-2 flex items-center justify-center hover:scale-110 transition-all'>
+                    <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoYoutube size='1.7rem' />
                     </button>
                 </div>
@@ -32,10 +32,10 @@ export default function Main() {
                 <p className='text-lg md:text-xl font-[500] text-slate-600 dark:text-slate-400'
                 >Me encanta crear soluciones innovadoras y eficientes para los problemas que se presentan en el mundo digital</p>
                 <div className='flex flex-row items-center justify-start gap-6'>
-                    <button className='py-3 px-5 rounded-tr-2xl rounded-bl-2xl border-2 border-solid border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-all'>
+                    <button className='py-3 px-5 rounded-full border-2 border-solid border-violet-600 bg-violet-600 hover:bg-violet-700 text-white transition-all'>
                         Contacteme
                     </button>
-                    <button className='play-btn relative flex rounded-full bg-sky-500 hover:bg-white text-white hover:text-sky-500 p-4'>
+                    <button className='play-btn relative flex rounded-full bg-violet-600 hover:bg-white text-white hover:text-violet-600 p-4'>
                         <BiSolidRightArrow size='1.5rem' className="icon-play" />
                     </button>
                 </div>

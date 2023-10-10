@@ -58,7 +58,7 @@ div.person-bg::after {
 /**** animation playbtn *******/
 button.play-btn {
   transform-origin: center;
-  box-shadow: 1px 1px 10px 5px #0ea5e9;
+  box-shadow: 1px 1px 10px 5px #6d28d9;
   transition: all 0.3s ease-in-out 0s;
 }
 button.play-btn:hover {
