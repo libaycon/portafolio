@@ -15,6 +15,10 @@
   text-decoration: none;
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 div.main-bg-img::after {
   content: "";
   position: absolute;

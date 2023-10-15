@@ -1,5 +1,6 @@
 'use client';
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 import { Button, Tooltip } from "@nextui-org/react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -15,6 +16,7 @@ interface SectionProps {
 }
 
 export default function section({ apps }: { apps: SectionProps[] }) {
+    const router = useRouter();
     return <>
         <div className='container m-auto flex flex-col p-8 gap-16' id="projects">
             <div className='flex justify-start'>
@@ -38,7 +40,7 @@ export default function section({ apps }: { apps: SectionProps[] }) {
                                     <div key={`${tech.name}-${i}`} className='flex items-center'>
                                         <Tooltip showArrow={true} content={tech.name} placement='top' classNames={{ base: "text-slate-500 dark:text-slate-300 font-semibold" }}>
                                             <div className="cursor-pointer p-1 rounded-sm bg-[#b4bddb] dark:bg-[#7c4dcf]">
-                                                <Image src={tech.Icon} alt={tech.name} width={30} height={40} priority />
+                                                <Image src={tech.Icon} alt={tech.name} width={30} height={40} className="w-auto" priority />
                                             </div>
                                         </Tooltip>
                                     </div>
@@ -50,6 +52,7 @@ export default function section({ apps }: { apps: SectionProps[] }) {
                                 size='sm'
                                 radius="sm"
                                 className="absolute top-2 right-2 bg-[none] p-2 cursor-pointer text-slate-400 hover:text-slate-500"
+                                onClick={() => router.push(app.link)}
                             />
                         </div>
                     </div>

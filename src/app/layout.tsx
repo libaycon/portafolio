@@ -12,10 +12,9 @@ export const metadata: Metadata = {
     description: 'Mi portafolio personal',
 }
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
+export default function RootLayout(props:{
+    children: React.ReactNode;
+    modal: React.ReactNode;
 }) {
     return (
         <html suppressHydrationWarning lang="en">
@@ -32,13 +31,14 @@ export default function RootLayout({
                                 <Header />
                             </div>
                             <div className=''>
-                                {children}
+                                {props.children}
                             </div>
                             <div className='relative w-full full'>
                                 <div className='absolute -top-[4rem] right-0 left-0 bottom-0 bg-[#b9bdcd] dark:bg-[#11172b] -z-[2]' />
                                 <Footer />
                             </div>
                         </div>
+                            {props.modal}
                     </main>
                 </Providers>
             </body>

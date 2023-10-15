@@ -43,7 +43,7 @@ export default function Home() {
 			{ Icon: 'https://res.cloudinary.com/dppta0r5e/image/upload/v1694925957/icons/sjgvfpoftg6z5tnl6rev.png', name: 'TailwindCss' },
 			{ Icon: 'https://res.cloudinary.com/dppta0r5e/image/upload/v1694925957/icons/itgaxkz6jx2rpx92lplz.png', name: 'PostgreSql' },
 		]},
-		{ Icon: sGame, title: 'Snake Game', description: 'Un clásico juego Snake con TypeScript, NextJs y tawildCss', link: '#', techs: [
+		{ Icon: sGame, title: 'Snake Game', description: 'Un clásico juego Snake con TypeScript, NextJs y tawildCss', link: '/projects/snake', techs: [
 			{ Icon: 'https://res.cloudinary.com/dppta0r5e/image/upload/v1696018061/icons/typeScript_ktd2dv.png', name: 'TypeScript' },
 			{ Icon: 'https://res.cloudinary.com/dppta0r5e/image/upload/v1694925957/icons/yflff899h0ijgrieacki.png', name: 'NextJs' },
 			{ Icon: 'https://res.cloudinary.com/dppta0r5e/image/upload/v1694925957/icons/sjgvfpoftg6z5tnl6rev.png', name: 'TailwindCss' },
