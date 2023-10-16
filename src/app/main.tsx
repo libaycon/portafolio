@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import imgBg from '/public/bg.png';
-import imPhoto from '/public/im-com.png';
+import imPhoto from '/public/slideImage.svg';
 import ParticlesComponent from '@/components/particles/particles';
 import { BiLogoFacebook, BiLogoLinkedin, BiLogoInstagram, BiLogoYoutube, BiSolidRightArrow } from 'react-icons/bi';
 
@@ -13,9 +14,9 @@ export default function Main() {
         <div className='container m-auto h-full flex flex-col md:flex-row gap-4 items-center select-none'>
             <div className='flex-1 p-4 pt-6 md:p-8 w-[90%] space-y-4'>
                 <div className='flex flex-row gap-4 text-white'>
-                    <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
+                    <Link href={"https://www.linkedin.com/in/enoc-lima-427364255/"} target='blank' className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoLinkedin size='1.7rem' />
-                    </button>
+                    </Link>
                     <button className='rounded-full bg-violet-600 p-2 flex items-center justify-center hover:scale-110 transition-all'>
                         <BiLogoFacebook size='1.7rem' />
                     </button>
@@ -26,8 +27,8 @@ export default function Main() {
                         <BiLogoYoutube size='1.7rem' />
                     </button>
                 </div>
-                <h1 className='text-4xl md:text-6xl font-extrabold'>
-                    Hola, soy Enok Lima, un software developer.
+                <h1 className='text-4xl md:text-6xl font-extrabold text-slate-600 dark:text-slate-300'>
+                Desarrollador Creativo de Soluciones Tecnológicas
                 </h1>
                 <p className='text-lg md:text-xl font-[500] text-slate-600 dark:text-slate-400'
                 >Me encanta crear soluciones innovadoras y eficientes para los problemas que se presentan en el mundo digital</p>

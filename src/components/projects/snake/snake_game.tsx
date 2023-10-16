@@ -11,7 +11,7 @@ function SnakeGame(): JSX.Element {
             <div className="bg-[#ef772b] p-8 rounded-md">
                 <h1 className="text-xl font-bold text-center">Snake Game</h1>
                 <ScoreCard />
-                <div className="max-w-max max-h-max m-auto">
+                <div className="relative max-w-max max-h-max m-auto">
                     <CanvasBoard width={260} height={400} />
                 </div>
             </div>

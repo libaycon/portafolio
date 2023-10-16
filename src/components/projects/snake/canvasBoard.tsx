@@ -2,10 +2,10 @@ import React, { useRef, useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IObjectBody, clearBoard, drawObject, generationRandomPosition, hasSnakeCollision, snakeBodyDraw, randomFood } from "./utils";
 import { IGlobalState } from "./store/reducers/reducers";
-import { 
-    MOVE_DOWN, 
-    MOVE_LEFT, 
-    MOVE_RIGHT, 
+import {
+    MOVE_DOWN,
+    MOVE_LEFT,
+    MOVE_RIGHT,
     MOVE_UP,
 
     INCREMENT_SCORE,
@@ -13,8 +13,11 @@ import {
     increaseSnake,
     makeMove,
     scoreUpdates,
-    stopGame
+    stopGame,
+    resetGame,
+    RESET_SCORE,
 } from "./store/actions/actions";
+import StartOverGame from "./startOverGame";
 
 
 export interface ICanvasBoard {
@@ -28,6 +31,7 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
     const [pos, setPos] = useState<IObjectBody>(generationRandomPosition(width - 10, height - 10));
     const [isConsumed, setIsConsumed] = useState<boolean>(false);
     const [gameEnded, setGameEnded] = useState<boolean>(false);
+    const [firstRender, setFirstRender] = useState<boolean>(true);
 
     const dispatch = useDispatch();
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -77,18 +81,20 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
                 disallowedDirection !== "UP" &&
                 disallowedDirection !== "DOWN" &&
                 e.key === "Enter"
-            )
+            ) {
+                setFirstRender(false);
                 moveSnake(10, 0, disallowedDirection);
+            }
         }
     }, [disallowedDirection, moveSnake]);
 
     const resetBoard = useCallback(() => {
-        window.removeEventListener("keydown", handleKeyEvents);
-        dispatch(stopGame());
+        dispatch(resetGame());
+        dispatch(scoreUpdates(RESET_SCORE));
+        setFirstRender(true);
         clearBoard(context);
-        drawObject(context, snake, "#91C483");
-        drawObject(context, [generationRandomPosition(width - 10, height - 10)], randomFood());
-        window.addEventListener("keydown", handleKeyEvents);
+        snakeBodyDraw(context, snake);
+        drawObject(context, [pos], currentFruit);
     }, [context, snake, width, height, dispatch, handleKeyEvents]);
 
     useEffect(() => {
@@ -96,8 +102,8 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
         clearBoard(context);
         snakeBodyDraw(context, snake);
         drawObject(context, [pos], currentFruit);
-        if (!isConsumed && snake[0].x === pos?.x && snake[0].y === pos?.y) setCurrentFruit(randomFood()),setIsConsumed(true);
-        
+        if (!isConsumed && snake[0].x === pos?.x && snake[0].y === pos?.y) setCurrentFruit(randomFood()), setIsConsumed(true);
+
         if (
             hasSnakeCollision(snake, snake[0]) ||
             snake[0].x >= width ||
@@ -131,12 +137,15 @@ const CanvasBoard = ({ height, width }: ICanvasBoard) => {
     }, [disallowedDirection, handleKeyEvents]);
 
     return (
-        <canvas
-            className="bg-slate-500 border-2 border-solid border-sky-500 rounded-md"
-            ref={canvasRef}
-            height={height}
-            width={width}
-        />
+        <>
+            <canvas
+                className="bg-slate-500 border-2 border-solid border-sky-500 rounded-md"
+                ref={canvasRef}
+                height={height}
+                width={width}
+            />
+            {gameEnded || firstRender ? <StartOverGame gameEnded={gameEnded} resetBoard={resetBoard} /> : null}
+        </>
     );
 };
 

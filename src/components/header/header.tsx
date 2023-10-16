@@ -20,9 +20,9 @@ const Header: React.FC = (): JSX.Element => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     const navigation = [
-        { name: "Inicio", path: "/", Icon: BiHomeSmile },
-        { name: "Skills", path: "/skills", Icon: BiRocket },
-        { name: "Proyectos", path: "#projects", Icon: BiCollection },
+        { name: "Home", path: "/", Icon: BiHomeSmile },
+        { name: "About", path: "/about", Icon: BiRocket },
+        { name: "Projects", path: "#projects", Icon: BiCollection },
         { name: "Contacto", path: "/contact", Icon: BiUserVoice }
     ];
 
@@ -94,13 +94,9 @@ const Header: React.FC = (): JSX.Element => {
                 <DarkButton darkMode={theme} setDarkMode={setTheme} />
 
 
-                <Button
-                    className="bg-transparent border-0 hover:border-2 hover:border-primary-200"
-                    isIconOnly
-                    size="md"
-                    radius="full"
-                    startContent={<BsGithub size="2rem" />}
-                />
+                <Link href="https://github.com/libaycon" target="blank"
+                    className="bg-transparent border-2 border-transparent hover:border-slate-300 rounded-full"
+                ><BsGithub size="2rem" /></Link>
             </div>
         </header>
     );
